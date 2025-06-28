@@ -1,19 +1,4 @@
-<?php
-require 'connect.html'; // This connects to the DB
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $fullname = $_POST['fullname'] ?? '';
-    $service_id = $_POST['service_id'] ?? '';
-    $message = $_POST['message'] ?? '';
-    $service_used = $_POST['service_used'] ?? '';
-    $location = $_POST['location'] ?? '';
-
-    $stmt = $pdo->prepare("INSERT INTO testimonies (fullname, service_id, message, service_used, location) VALUES (?, ?, ?, ?, ?)");
-    $stmt->execute([$fullname, $service_id, $message, $service_used, $location]);
-
-    echo "Testimony submitted successfully!";
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">
